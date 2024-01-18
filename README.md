@@ -29,7 +29,7 @@
 
 <table>
  <tr>
-    <td align="center"><a href="https://github.com/jihyeon-yu"><img src="https://avatars.githubusercontent.com/jinny-l" width="130px;" alt=""></a></td>
+    <td align="center"><a href="https://github.com/jihyeon-yu"><img src="https://avatars.githubusercontent.com/jihyeon-yu" width="130px;" alt=""></a></td>
     <td align="center"><a href=githubURL><img src="https://avatars.githubusercontent.com/HyowonSin" width="130px;" alt=""></a></td>
     <td align="center"><a href=githubURL><img src="https://avatars.githubusercontent.com/jaea-kim" width="130px;" alt=""></a></td>
     <td align="center"><a href=githubURL><img src="https://avatars.githubusercontent.com/JeonHyoChang" width="130px;" alt=""></a></td>
