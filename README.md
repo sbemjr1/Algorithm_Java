@@ -30,21 +30,21 @@
 <table>
  <tr>
     <td align="center"><a href="https://github.com/jihyeon-yu"><img src="https://avatars.githubusercontent.com/jihyeon-yu" width="130px;" alt=""></a></td>
-    <td align="center"><a href=githubURL><img src="https://avatars.githubusercontent.com/HyowonSin" width="130px;" alt=""></a></td>
-    <td align="center"><a href=githubURL><img src="https://avatars.githubusercontent.com/jaea-kim" width="130px;" alt=""></a></td>
-    <td align="center"><a href=githubURL><img src="https://avatars.githubusercontent.com/JeonHyoChang" width="130px;" alt=""></a></td>
-    <td align="center"><a href=githubURL><img src="https://avatars.githubusercontent.com/Gwonwoo-Nam" width="130px;" alt=""></a></td>
+    <td align="center"><a href="https://github.com/Sanizzang"><img src="https://avatars.githubusercontent.com/Sanizzang" width="130px;" alt=""></a></td>
+    <td align="center"><a href="https://github.com/Basaeng"><img src="https://avatars.githubusercontent.com/Basaeng" width="130px;" alt=""></a></td>
+    <td align="center"><a href="https://github.com/YunSeok-Choi"><img src="https://avatars.githubusercontent.com/YunSeok-Choi" width="130px;" alt=""></a></td>
+    <td align="center"><a href="https://github.com/Sbemjr1"><img src="https://avatars.githubusercontent.com/Sbemjr1" width="130px;" alt=""></a></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/jihyeon-yu"><b>jihyeon-yu</b></a></td>
-    <td align="center"><a href=githubURL><b>name</b></a></td>
-    <td align="center"><a href=githubURL><b>name</b></a></td>
-    <td align="center"><a href=githubURL><b>name</b></a></td>
-    <td align="center"><a href=githubURL><b>name</b></a></td>
+    <td align="center"><a href="https://github.com/Sanizzang"><b>Sanizzang</b></a></td>
+    <td align="center"><a href="https://github.com/Basaeng"><b>Basaeng</b></a></td>
+    <td align="center"><a href="https://github.com/YunSeok-Choi"><b>YunSeok-Choi</b></a></td>
+    <td align="center"><a href="https://github.com/Sbemjr1"><b>Sbemjr1</b></a></td>
   </tr>
   <tr> 
     <td align="center"><img src="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white"><br/><img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"></td>
-    <td align="center"><img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"><br/><img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"></td>
+    <td align="center"><img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"><br/></td>
     <td align="center"><img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"><br/><img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"></td>
     <td align="center"><img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"><br/><img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"></td>
     <td align="center"><img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"><br/><img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"></td>
@@ -63,9 +63,9 @@
 <br/>
 
 ## 🔍 참여 방법
-1. 이 저장소를 `fork` 한다.
-2. 생성된 저장소에 `Github ID`로 폴더를 생성한다.
-3. 알고리즘 풀이 후 원본 저장소에 `PR`를 보낸다.
+1. branch를 만든다.
+2. `Github ID`로 폴더를 생성한다.
+3. 알고리즘 풀이 후 본인 폴더에 upload 한다.
 
 <br/>
 
