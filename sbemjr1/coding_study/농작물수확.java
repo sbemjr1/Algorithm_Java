@@ -1,4 +1,4 @@
-package coding_study.algorithm;
+package coding_study;
 
 import java.util.Scanner;
 
@@ -48,3 +48,4 @@ public class 농작물수확 {
 	}
 
 }
+
