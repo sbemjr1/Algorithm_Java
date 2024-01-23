@@ -1,4 +1,4 @@
-package coding_study;
+package sbemjr1;
 
 import java.util.Scanner;
 
