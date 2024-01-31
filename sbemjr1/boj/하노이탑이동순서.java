@@ -1,4 +1,4 @@
-package sbemjr1;
+package boj;
 
 public class 하노이탑이동순서 {
 

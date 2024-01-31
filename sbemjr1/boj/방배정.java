@@ -1,4 +1,4 @@
-package sbemjr1;
+package boj;
 
 import java.util.Arrays;
 import java.util.Scanner;
