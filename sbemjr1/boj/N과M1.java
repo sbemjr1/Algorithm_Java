@@ -2,28 +2,26 @@ package boj;
 
 import java.util.Scanner;
 
-public class BOJ_N과M1 {
-
+public class N과M1 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
 		int M = sc.nextInt();
-		
 		int[] arr = new int[N];
 		int[] sel = new int[M];
-		boolean[] v = new boolean[arr.length];
+		boolean[] v = new boolean[N];
 		
 		for (int i = 0; i < N; i++) {
 			arr[i] = i+1;
 		}
 		
-		recursive(arr,sel, v,0);
+		recursive(arr,sel,v,0);
 	}
 
 	private static void recursive(int[] arr, int[] sel, boolean[] v, int k) {
-		if(k==sel.length) {
-			for (int j = 0; j < sel.length; j++) {
-				System.out.print(sel[j]+" ");
+		if (k == sel.length) {
+			for (int i = 0; i < sel.length; i++) {
+				System.out.print(sel[i]+" ");
 			}
 			System.out.println();
 			return;
