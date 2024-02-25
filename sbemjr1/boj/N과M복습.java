@@ -1,11 +1,9 @@
-package boj;
-
 import java.io.IOException;
 import java.util.Scanner;
 
 public class N과M복습 {
 	static int N, M, arr[], sel[];
-//	static boolean v[];
+	static boolean v[];
 	
 	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
@@ -21,23 +19,24 @@ public class N과M복습 {
 			arr[i] = i+1;
 		}
 		
-		recursive(0,0);
+		combination(0,0);
 	}
 
-	private static void recursive(int idx, int cnt) {
-		if (cnt == sel.length) {
-			for (int i = 0; i < sel.length; i++) {
-				System.out.print(sel[i] + " ");
+	private static void combination(int idx, int k) {
+		if(k == M) {
+			for (int i = 0; i < M; i++) {
+				System.out.print(sel[i]+" ");
 			}
 			System.out.println();
 			return;
 		}
-		if (idx == N) {
+		if(idx==N) {
 			return;
 		}
-		
-		sel[cnt] = arr[idx];
-		recursive(idx+1,cnt+1);
-		recursive(idx+1,cnt);
+		sel[k] = arr[idx];
+		combination(idx+1, k+1);
+		combination(idx+1, k);
 	}
+
+	
 }
