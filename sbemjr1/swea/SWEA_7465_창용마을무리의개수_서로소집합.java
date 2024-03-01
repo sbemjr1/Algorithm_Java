@@ -38,6 +38,10 @@ public class SWEA_7465_창용마을무리의개수_서로소집합 {
 				union(org,change);
 			}
 			
+			for (int i = 1; i <= N; i++) {
+				System.out.println(group[i]);
+			}
+			
 			ArrayList<Integer> ans = new ArrayList<>();
 			
 			for (int i = 1; i <= N; i++) {
