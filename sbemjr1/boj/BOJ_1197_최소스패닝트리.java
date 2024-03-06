@@ -14,7 +14,7 @@ public class BOJ_1197_최소스패닝트리 {
 		int vertex, weight;
 		Node next;
 		
-		public Node(int vertex, int weight, BOJ_1197_최소스패닝트리.Node next) {
+		public Node(int vertex, int weight, Node next) {
 			this.vertex = vertex;
 			this.weight = weight;
 			this.next = next;
@@ -64,6 +64,7 @@ public class BOJ_1197_최소스패닝트리 {
 			int w = Integer.parseInt(st.nextToken());
 			
 			adjList[from] = new Node(to,w,adjList[from]);
+			adjList[to] = new Node(from,w,adjList[to]);
 		}
 		
 		v = new boolean[V+1];
@@ -74,10 +75,10 @@ public class BOJ_1197_최소스패닝트리 {
 		
 		PriorityQueue<Vertex> pq = new PriorityQueue<>();
 		pq.offer(new Vertex(1,minEdge[1]));
-		int result = 0;
+		long result = 0;
 		int cnt = 0;
 		
-		for (int i = 0; i < E; i++) {
+		while(!pq.isEmpty()) {
 			Vertex minVertex = pq.poll();
 			if(v[minVertex.node]) {
 				continue;
