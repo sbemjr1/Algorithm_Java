@@ -1,4 +1,3 @@
-package boj;
 
 import java.util.Scanner;
 
@@ -9,18 +8,18 @@ public class N과M2 {
 		int M = sc.nextInt();
 		int[] arr = new int[N];
 		int[] sel = new int[M];
-		
+
 		for (int i = 0; i < N; i++) {
-			arr[i] = i+1;
+			arr[i] = i + 1;
 		}
-		
-		recursive(arr,sel,0,0);
+
+		recursive(arr, sel, 0, 0);
 	}
 
 	private static void recursive(int[] arr, int[] sel, int idx, int k) {
-		if (k==sel.length) {
+		if (k == sel.length) {
 			for (int i = 0; i < sel.length; i++) {
-				System.out.print(sel[i]+" ");
+				System.out.print(sel[i] + " ");
 			}
 			System.out.println();
 			return;
@@ -29,8 +28,8 @@ public class N과M2 {
 			return;
 		}
 		sel[k] = arr[idx];
-		recursive(arr, sel, idx+1, k+1);
-		recursive(arr, sel, idx+1, k);
+		recursive(arr, sel, idx + 1, k + 1);
+		recursive(arr, sel, idx + 1, k);
 	}
 
 }
