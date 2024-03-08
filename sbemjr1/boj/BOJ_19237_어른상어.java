@@ -6,18 +6,31 @@ import java.util.StringTokenizer;
 
 public class BOJ_19237_어른상어 {
 	static class Shark {
-		int num, role;
+		int num, look, smell;
 
-		public Shark(int num, int role) {
+		public Shark(int num, int look, int smell) {
 			super();
 			this.num = num;
-			this.role = role;
+			this.look = look;
+			this.smell = smell;
 		}
 
 	}
 
+	static class Move_shark {
+		int r, c, num, look;
+
+		public Move_shark(int r, int c, int num, int look) {
+			super();
+			this.r = r;
+			this.c = c;
+			this.num = num;
+			this.look = look;
+		}
+	}
+
 	static int N, M, K;
-	static Shark[][][] map;
+	static Shark[][] map;
 
 	static ArrayList<Integer> shark_list;
 	static int[] move_option;
@@ -34,9 +47,8 @@ public class BOJ_19237_어른상어 {
 		M = Integer.parseInt(st.nextToken());
 		K = Integer.parseInt(st.nextToken());
 
-		map = new Shark[N][N][2];
+		map = new Shark[N][N];
 		shark_list = new ArrayList<>();
-		move_option = new int[M + 1];
 		move_guide = new int[M + 1][4][4];
 
 		for (int r = 0; r < N; r++) {
@@ -44,12 +56,10 @@ public class BOJ_19237_어른상어 {
 			for (int c = 0; c < N; c++) {
 				int input_shark = Integer.parseInt(st.nextToken());
 				if (input_shark != 0) {
-					map[r][c][0] = new Shark(input_shark, 0); // 상어 번호, 보고 있는 방향
-					map[r][c][1] = new Shark(input_shark, K); // 상어 번호, 냄새
-					shark_list.add(input_shark);
+					map[r][c] = new Shark(input_shark, 0, K); // 상어 번호, 보고 있는 방향, 냄새
+					shark_list.add(input_shark); // 상어 갯수 파악
 				} else {
-					map[r][c][0] = new Shark(0, 0);
-					map[r][c][1] = new Shark(0, 0);
+					map[r][c] = new Shark(0, 0, 0); // 초기 빈칸
 				}
 			}
 		}
@@ -58,8 +68,8 @@ public class BOJ_19237_어른상어 {
 			int input_shark_dir = Integer.parseInt(st.nextToken());
 			for (int r = 0; r < N; r++) {
 				for (int c = 0; c < N; c++) {
-					if (map[r][c][0].num == i) {
-						map[r][c][0].role = input_shark_dir;
+					if (map[r][c].num == i) {
+						map[r][c].look = input_shark_dir;
 					}
 				}
 			}
@@ -74,16 +84,16 @@ public class BOJ_19237_어른상어 {
 			}
 		}
 
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 4; j++) {
-				System.out.print(move_guide[4][i][j] + " ");
-			}
-			System.out.println();
-		}
+//		for (int i = 0; i < 4; i++) {
+//			for (int j = 0; j < 4; j++) {
+//				System.out.print(move_guide[4][i][j] + " ");
+//			}
+//			System.out.println();
+//		}
 
 //		for (int r = 0; r < N; r++) {
 //			for (int c = 0; c < N; c++) {
-//				System.out.print(map[r][c][0].role);
+//				System.out.print(map[r][c].smell);
 //			}
 //			System.out.println();
 //		}
@@ -95,12 +105,13 @@ public class BOJ_19237_어른상어 {
 			if (shark_list.size() == 1) {
 				break;
 			}
-
+			ArrayList<Move_shark> list_blank = new ArrayList<>(); // 빈칸
+			ArrayList<Move_shark> list_mine = new ArrayList<>(); // 자신의 냄새
 			// 상어 모두 찾고 이동 가능한 방향으로 이동(냄새(1)는 남기고 상어(0)는 이동)
 			for (int r = 0; r < N; r++) {
 				for (int c = 0; c < N; c++) {
-					ArrayList<int[]> list = new ArrayList<>();
-					if (map[r][c][0].num != 0) {
+					if (map[r][c].look != 0) { // 해당 위치에 상어가 실제로 있는지
+						// 이동 가능한 곳 찾기 (빈칸 or 자신의 냄새)
 						for (int d = 0; d < 4; d++) {
 							int nr = r + dr[d];
 							int nc = c + dc[d];
@@ -108,18 +119,22 @@ public class BOJ_19237_어른상어 {
 							if (nr < 0 || nr >= N || nc < 0 || nc >= N) {
 								continue;
 							}
-							if (map[nr][nc][1].role == 0) { // 빈칸이거나 (냄새 X)
-								list.add(new int[] { nr, nc });
-							} else if (map[nr][nc][1].num == map[r][c][1].num) { // 자신의 냄새이거나
-								list.add(new int[] { nr, nc });
+							if (map[nr][nc].smell == 0) { // 빈칸인 경우
+								list_blank.add(new Move_shark(nr, nc, map[r][c].num, d));
+							}
+							if (map[nr][nc].num == map[r][c].num) { // 자신의 냄새인 경우
+								list_mine.add(new Move_shark(nr, nc, map[r][c].num, d));
 							}
 						}
-						// 갈 수 있는 방향이 하나인 경우
-						if (list.size() == 1) {
-							map[nr][nc][0].num 
-						} else if (list.size() > 1) {// 여러 개인 경우
+					}
+					// 상어 위치 이동하기 위해 현재 상어 초기화
+					map[r][c].look = 0;
 
-						}
+					// 이동 시작
+					if (list_blank.size() > 0) { // 빈칸으로 이동할 수 있는 경우
+
+					} else if (list_blank.size() == 0) { // 빈칸으로 이동 불가한 경우
+
 					}
 				}
 			}
