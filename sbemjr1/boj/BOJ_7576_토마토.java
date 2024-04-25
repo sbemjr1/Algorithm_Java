@@ -9,7 +9,7 @@ public class BOJ_7576_토마토 {
 	static int R, C, cnt;
 	static int[][] map;
 	static Queue<Point> q;
-	
+
 	static class Point {
 		int r, c;
 
@@ -18,19 +18,20 @@ public class BOJ_7576_토마토 {
 			this.c = c;
 		}
 	}
+
 	static int[] dr = { -1, 1, 0, 0 };
 	static int[] dc = { 0, 0, -1, 1 };
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		
+
 		C = Integer.parseInt(st.nextToken());
 		R = Integer.parseInt(st.nextToken());
-		
+
 		map = new int[R][C];
 		q = new ArrayDeque<>();
-		
+
 		for (int r = 0; r < R; r++) {
 			st = new StringTokenizer(br.readLine());
 			for (int c = 0; c < C; c++) {
@@ -43,10 +44,42 @@ public class BOJ_7576_토마토 {
 				}
 			}
 		}
-		
-		while(true) {
+		int ans = 0;
+		while (true) {
+			int size = q.size();
 			
+			if (cnt == 0) {
+				break;
+			}
+			if (q.isEmpty()) {
+				ans = -1;
+				break;
+			}
+
+			for (int i = 0; i < size; i++) {
+				Point p = q.poll();
+				int r = p.r;
+				int c = p.c;
+
+				for (int d = 0; d < 4; d++) {
+					int nr = r + dr[d];
+					int nc = c + dc[d];
+					
+					if (nr<0||nr>=R||nc<0||nc>=C) {
+						continue;
+					}
+					if (map[nr][nc] != 0) {
+						continue;
+					}
+					
+					map[nr][nc] = 1;
+					cnt--;
+					q.offer(new Point(nr, nc));
+				}
+			}
+			ans++;
 		}
+		System.out.println(ans);
 	}
 
 }
